@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>previsioni meteo</title>
+        <link rel="stylesheet" href="static/css/style.css">
+	</head>
+	<body>
+		<section id="hero" class="d-flex justify-content-center align-items-center">
+			<div class="content text-center text-white">
+				<h1>Wheater forecasr</h1>
+				<h2>Inserire le coordinate</h2>
+				<div class="formWrapper">
+					<form action="" method="get">
+						<div class="formRow d-flex">
+							<div class="field flex-fill me-5">
+								<label for="lat">Latitudine</label>
+								<input
+									class="d-block"
+									type="text"
+									name="lat"
+									id="lat"
+									placeholder="51.44"
+								/>
+							</div>
 
+							<div class="field flex-fill ms-5">
+								<label for="lng">Longitudine</label>
+								<input
+									class="d-block"
+									type="text"
+									name="lng"
+									id="lng"
+									placeholder="51.44"
+								/>
+							</div>
+						</div>
+
+						<div class="formRow d-flex">
+							<div class="field flex-fill me-5">
+								<input
+									class="d-block btn btn-light"
+									type="reset"
+									value="Reset"
+								/>
+							</div>
+
+							<div class="field flex-fill ms-5">
+								<input
+									class="d-block btn btn-success"
+									type="submit"
+									value="Richiedi i dati"
+								/>
+							</div>
+						</div>
+					</form>
+				</div>
+				<ul>
+					<li>2023-09-19T04:00 -> 26.2</li>
+				</ul>
+			</div>
+		</section>
+	</body>
+
+
+    <script src="static/js/script.js"></script>
+</html>
