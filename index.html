@@ -4,65 +4,175 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>previsioni meteo</title>
-        <link rel="stylesheet" href="static/css/style.css">
+		<link rel="stylesheet" href="static/css/style.css" />
+		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 	<body>
-		<section id="hero" class="d-flex justify-content-center align-items-center">
-			<div class="content text-center text-white">
-				<h1>Wheater forecasr</h1>
-				<h2>Inserire le coordinate</h2>
-				<div class="formWrapper">
-					<form action="" method="get">
-						<div class="formRow d-flex">
-							<div class="field flex-fill me-5">
-								<label for="lat">Latitudine</label>
-								<input
-									class="d-block"
-									type="text"
-									name="lat"
-									id="lat"
-									placeholder="51.44"
-								/>
-							</div>
+		<!-- component -->
+		<!DOCTYPE html>
+		<html lang="id-ID">
+			<head>
+				<meta charset="utf-8" />
+				<meta name="viewport" content="width=device-width" />
+				<!---
+	You may need jQuery
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	--->
+			</head>
 
-							<div class="field flex-fill ms-5">
-								<label for="lng">Longitudine</label>
-								<input
-									class="d-block"
-									type="text"
-									name="lng"
-									id="lng"
-									placeholder="51.44"
-								/>
-							</div>
+			<body>
+				<nav
+					id="nav"
+					class="fixed inset-x-0 top-0 flex flex-row justify-between z-10 text-white bg-transparent"
+				>
+					<div class="p-4">
+						<div class="font-extrabold tracking-widest text-xl">
+							<a href="#" class="transition duration-500 hover:text-indigo-500"
+								>METEO.IT</a
+							>
 						</div>
+					</div>
 
-						<div class="formRow d-flex">
-							<div class="field flex-fill me-5">
-								<input
-									class="d-block btn btn-light"
-									type="reset"
-									value="Reset"
-								/>
-							</div>
+					<!-- Nav Items Working on Tablet & Bigger Sceen -->
+					<div class="p-4 hidden md:flex flex-row justify-between font-bold">
+						<a
+							id="hide-after-click"
+							href="#"
+							class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500"
+							>About</a
+						>
+						<a
+							href="#"
+							class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500"
+							>Why Us ?</a
+						>
+						<a
+							href="#"
+							class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500"
+							>Our Products</a
+						>
+					</div>
 
-							<div class="field flex-fill ms-5">
-								<input
-									class="d-block btn btn-success"
-									type="submit"
-									value="Richiedi i dati"
-								/>
-							</div>
-						</div>
-					</form>
+					<!-- Burger Nav Button on Mobile -->
+					<div id="nav-open" class="p-4 md:hidden">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="feather feather-menu"
+						>
+							<line x1="3" y1="12" x2="21" y2="12"></line>
+							<line x1="3" y1="6" x2="21" y2="6"></line>
+							<line x1="3" y1="18" x2="21" y2="18"></line>
+						</svg>
+					</div>
+				</nav>
+
+				<!-- Opened Nav in Mobile, you can use javascript/jQuery -->
+				<div
+					id="nav-opened"
+					class="fixed left-0 right-0 hidden bg-white mx-2 mt-16 rounded-br rounded-bl shadow z-10"
+				>
+					<div class="p-2 divide-y divide-gray-600 flex flex-col">
+						<a href="#about" class="p-2 font-semibold hover:text-indigo-700"
+							>About</a
+						>
+						<a href="#whyus" class="p-2 font-semibold hover:text-indigo-700"
+							>Why Us ?</a
+						>
+						<a href="#showcase" class="p-2 font-semibold hover:text-indigo-700"
+							>Our Products</a
+						>
+					</div>
 				</div>
-				<ul>
-					<li>2023-09-19T04:00 -> 26.2</li>
-				</ul>
-			</div>
-		</section>
+
+				<section
+					id="up"
+					class="bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative"
+				>
+					<!-- Overlay Background + Center Control -->
+					<div
+						class="h-screen bg-opacity-50 bg-black flex items-center justify-center"
+						style="background: rgba(0, 0, 0, 0.5)"
+					>
+						<div class="mx-2 text-center">
+							<h1
+								class="text-gray-100 font-extrabold text-4xl xs:text-5xl md:text-6xl"
+							>
+								<span class="text-white">Wheater</span> forecast
+							</h1>
+							<h2
+								class="text-gray-200 font-extrabold text-3xl xs:text-4xl md:text-5xl leading-tight"
+							>
+								Inserire <span class="text-white">longitudine</span> e
+								<span class="text-white">Latitudine</span>
+							</h2>
+
+
+
+                            
+
+							<div class="formWrapper inline-flex m-[50px]">
+								<form action="" method="get">
+									<div class="flex items-center">
+										<div class="grow me-5">
+											<label for="lat">Latitudine</label>
+											<input
+												class="block"
+												type="text"
+												name="lat"
+												id="lat"
+												placeholder="51.44"
+											/>
+										</div>
+
+										<div class="grow me-5">
+											<label for="lng">Longitudine</label>
+											<input
+												class="block"
+												type="text"
+												name="lng"
+												id="lng"
+												placeholder="51.44"
+											/>
+										</div>
+									</div>
+
+									<div class="flex">
+										<div class="grow text-center">
+											<input
+												class="block   "
+												type="reset"
+												value="Reset"
+											/>
+										</div>
+
+										<div class="grow text-center">
+											<input
+												class="block"
+												type="submit"
+												value="Richiedi i dati"
+											/>
+										</div>
+									</div>
+								</form>
+							</div>
+
+
+
+
+						</div>
+					</div>
+				</section>
+			</body>
+		</html>
 	</body>
 
-
-    <script src="static/js/script.js"></script>
+	<script src="static/js/script.js"></script>
 </html>
