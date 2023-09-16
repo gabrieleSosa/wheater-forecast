@@ -21,103 +21,86 @@
 		></script>
 	</head>
 	<body>
-		<!-- component -->
-		<!DOCTYPE html>
-		<html lang="id-ID">
-			<head>
-				<meta charset="utf-8" />
-				<meta name="viewport" content="width=device-width" />
-				<!---
-	You may need jQuery
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	--->
-			</head>
-
-			<body>
-				<section
-					id="up"
-					class="bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative"
-				>
-
-					<!-- Overlay Background + Center Control -->
-					<div
-						class="h-screen bg-opacity-50 bg-black flex items-center justify-center"
-						style="background: rgba(0, 0, 0, 0.5)"
+		<section
+			id="up"
+			class="bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative"
+		>
+			<!-- Overlay Background + Center Control -->
+			<div
+				class="h-screen bg-opacity-50 bg-black flex items-center justify-center"
+				style="background: rgba(0, 0, 0, 0.5)"
+			>
+				<div class="text-center">
+					<h1
+						class="text-gray-100 font-extrabold text-4xl xs:text-5xl md:text-6xl"
 					>
-						<div class="mx-2 text-center">
-							<h1
-								class="text-gray-100 font-extrabold text-4xl xs:text-5xl md:text-6xl"
-							>
-								<span class="text-white">Wheater</span> forecast
-							</h1>
-							<h2
-								class="text-gray-200 font-extrabold text-3xl xs:text-4xl md:text-5xl leading-tight"
-							>
-								Inserire <span class="text-white">longitudine</span> e
-								<span class="text-white">Latitudine</span>
-							</h2>
+						<span class="text-white">Wheater</span> forecast
+					</h1>
+					<h2
+						class="text-gray-200 font-extrabold text-3xl xs:text-4xl md:text-5xl leading-tight"
+					>
+						Wheater <span class="text-white">where</span> you
+						<span class="text-white">want</span>
+					</h2>
 
-							<!--la mappa verrà inserita qua-->
-							<div class="mt-10" id="map"></div>
+					<div class="mt-10" id="map"></div>
 
-							<div class="formWrapper inline-flex m-[50px]">
-								<form action="" method="get">
-									<div class="flex items-center">
-										<div class="grow me-10">
-											<label
-												class="text-lg font-mono text-white font-semibold"
-												for="lat"
-												>Latitudine</label
-											>
-											<input
-												class="font-mono mt-1 block placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-												type="text"
-												name="lat"
-												id="lat"
-												placeholder="11.0"
-											/>
-										</div>
+					<div class="formWrapper inline-flex m-[50px]">
+						<form action="" method="get">
+							<div class="flex items-center">
+								<div class="grow me-10">
+									<label
+										class="text-lg font-mono text-white font-semibold"
+										for="lat"
+										>Latitudine</label
+									>
+									<input
+										class="font-mono mt-1 block placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+										type="text"
+										name="lat"
+										id="lat"
+										placeholder="11.0"
+									/>
+								</div>
 
-										<div class="grow me-5">
-											<label
-												class="text-lg font-mono text-white font-semibold"
-												for="lng"
-												>Longitudine</label
-											>
-											<input
-												class="font-mono mt-1 block placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-												type="text"
-												name="lng"
-												id="lng"
-												placeholder="11.0"
-											/>
-										</div>
-									</div>
-
-									<div class="flex mt-8">
-										<div class="reset grow text-center">
-											<input
-												class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-												type="reset"
-												value="Reset"
-											/>
-										</div>
-
-										<div class="submit grow text-center">
-											<input
-												class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-												type="submit"
-												value="Richiedi i dati"
-											/>
-										</div>
-									</div>
-								</form>
+								<div class="grow me-5">
+									<label
+										class="text-lg font-mono text-white font-semibold"
+										for="lng"
+										>Longitudine</label
+									>
+									<input
+										class="font-mono mt-1 block placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+										type="text"
+										name="lng"
+										id="lng"
+										placeholder="11.0"
+									/>
+								</div>
 							</div>
-						</div>
+
+							<div class="flex mt-8">
+								<div class="reset grow text-center">
+									<input
+										class="py-2 px-4 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+										type="reset"
+										value="Reset"
+									/>
+								</div>
+
+								<div class="submit grow text-center">
+									<input
+										class="py-2 px-4 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+										type="submit"
+										value="Richiedi i dati"
+									/>
+								</div>
+							</div>
+						</form>
 					</div>
-				</section>
-			</body>
-		</html>
+				</div>
+			</div>
+		</section>
 	</body>
 
 	<script>
@@ -128,5 +111,18 @@
 			attribution:
 				'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 		}).addTo(map);
+
+		var popup = L.popup();
+
+		function onMapClick(e) {
+			console.log(e.latlng);
+			let lat = e.lat;
+			console.log(lat);
+
+			console.log(e.value)
+			var marker = L.marker([51, -0.09]).addTo(map);
+		}
+
+		map.on("click", onMapClick);
 	</script>
 </html>
