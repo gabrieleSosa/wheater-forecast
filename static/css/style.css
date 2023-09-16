@@ -28,7 +28,16 @@
 			}
 		} */
 
-
 section {
 	background: url("https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress&cs=tinysrgb&w=1920");
+}
+
+.reset,
+.submit {
+	flex: 1;
+}
+
+#map {
+	height: 180px;
+	width: 100%;
 }

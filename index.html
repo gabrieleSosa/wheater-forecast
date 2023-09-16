@@ -6,6 +6,19 @@
 		<title>previsioni meteo</title>
 		<link rel="stylesheet" href="static/css/style.css" />
 		<script src="https://cdn.tailwindcss.com"></script>
+
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""
+		/>
+
+		<script
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin=""
+		></script>
 	</head>
 	<body>
 		<!-- component -->
@@ -21,81 +34,12 @@
 			</head>
 
 			<body>
-				<nav
-					id="nav"
-					class="fixed inset-x-0 top-0 flex flex-row justify-between z-10 text-white bg-transparent"
-				>
-					<div class="p-4">
-						<div class="font-extrabold tracking-widest text-xl">
-							<a href="#" class="transition duration-500 hover:text-indigo-500"
-								>METEO.IT</a
-							>
-						</div>
-					</div>
-
-					<!-- Nav Items Working on Tablet & Bigger Sceen -->
-					<div class="p-4 hidden md:flex flex-row justify-between font-bold">
-						<a
-							id="hide-after-click"
-							href="#"
-							class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500"
-							>About</a
-						>
-						<a
-							href="#"
-							class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500"
-							>Why Us ?</a
-						>
-						<a
-							href="#"
-							class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-indigo-300 transition duration-500"
-							>Our Products</a
-						>
-					</div>
-
-					<!-- Burger Nav Button on Mobile -->
-					<div id="nav-open" class="p-4 md:hidden">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="feather feather-menu"
-						>
-							<line x1="3" y1="12" x2="21" y2="12"></line>
-							<line x1="3" y1="6" x2="21" y2="6"></line>
-							<line x1="3" y1="18" x2="21" y2="18"></line>
-						</svg>
-					</div>
-				</nav>
-
-				<!-- Opened Nav in Mobile, you can use javascript/jQuery -->
-				<div
-					id="nav-opened"
-					class="fixed left-0 right-0 hidden bg-white mx-2 mt-16 rounded-br rounded-bl shadow z-10"
-				>
-					<div class="p-2 divide-y divide-gray-600 flex flex-col">
-						<a href="#about" class="p-2 font-semibold hover:text-indigo-700"
-							>About</a
-						>
-						<a href="#whyus" class="p-2 font-semibold hover:text-indigo-700"
-							>Why Us ?</a
-						>
-						<a href="#showcase" class="p-2 font-semibold hover:text-indigo-700"
-							>Our Products</a
-						>
-					</div>
-				</div>
-
 				<section
 					id="up"
 					class="bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative"
 				>
+				<div class="mt-10" id="map"></div>
+
 					<!-- Overlay Background + Center Control -->
 					<div
 						class="h-screen bg-opacity-50 bg-black flex items-center justify-center"
@@ -114,48 +58,55 @@
 								<span class="text-white">Latitudine</span>
 							</h2>
 
-
-
-                            
+							<!--la mappa verrà inserita qua-->
+							<div class="mt-10" id="map"></div>
 
 							<div class="formWrapper inline-flex m-[50px]">
 								<form action="" method="get">
 									<div class="flex items-center">
-										<div class="grow me-5">
-											<label for="lat">Latitudine</label>
+										<div class="grow me-10">
+											<label
+												class="text-lg font-mono text-white font-semibold"
+												for="lat"
+												>Latitudine</label
+											>
 											<input
-												class="block"
+												class="font-mono mt-1 block placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
 												type="text"
 												name="lat"
 												id="lat"
-												placeholder="51.44"
+												placeholder="11.0"
 											/>
 										</div>
 
 										<div class="grow me-5">
-											<label for="lng">Longitudine</label>
+											<label
+												class="text-lg font-mono text-white font-semibold"
+												for="lng"
+												>Longitudine</label
+											>
 											<input
-												class="block"
+												class="font-mono mt-1 block placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
 												type="text"
 												name="lng"
 												id="lng"
-												placeholder="51.44"
+												placeholder="11.0"
 											/>
 										</div>
 									</div>
 
-									<div class="flex">
-										<div class="grow text-center">
+									<div class="flex mt-8">
+										<div class="reset grow text-center">
 											<input
-												class="block   "
+												class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
 												type="reset"
 												value="Reset"
 											/>
 										</div>
 
-										<div class="grow text-center">
+										<div class="submit grow text-center">
 											<input
-												class="block"
+												class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
 												type="submit"
 												value="Richiedi i dati"
 											/>
@@ -163,10 +114,6 @@
 									</div>
 								</form>
 							</div>
-
-
-
-
 						</div>
 					</div>
 				</section>
@@ -174,5 +121,13 @@
 		</html>
 	</body>
 
-	<script src="static/js/script.js"></script>
+	<script>
+		var map = L.map("map").setView([51.505, -0.09], 13);
+
+		L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+			maxZoom: 19,
+			attribution:
+				'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+		}).addTo(map);
+	</script>
 </html>
