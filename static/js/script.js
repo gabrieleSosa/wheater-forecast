@@ -1,4 +1,8 @@
+let resetButton = document.querySelector(".reset-button");
 
+resetButton.addEventListener("click", function () {
+	location.reload();
+});
 
 document.querySelector("form").addEventListener("submit", function (event) {
 	event.preventDefault();

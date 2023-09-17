@@ -86,7 +86,7 @@
 							<div class="flex mt-8">
 								<div class="reset grow text-center">
 									<input
-										class="py-2 px-4 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+										class="reset-button py-2 px-4 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
 										type="reset"
 										value="Reset"
 									/>
@@ -107,40 +107,6 @@
 		</section>
 	</body>
 
-	<script>
-		let latinput = document.querySelector("#lat");
-		let lnginput = document.querySelector("#lng");
-
-		var map = L.map("map").setView([51.505, -0.09], 13);
-
-		L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-			maxZoom: 19,
-			attribution:
-				'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-		}).addTo(map);
-
-		var popup = L.popup();
-		var marker = L.marker();
-
-		function onMapClick(e) {
-			map.removeLayer(marker);
-			marker = L.marker(e.latlng).addTo(map);
-
-			popup
-				.setLatLng(e.latlng)
-				.setContent("You clicked the map at " + e.latlng.toString())
-				.openOn(map);
-
-			let lat = e.latlng.lat.toString();
-			let lng = e.latlng.lng.toString();
-
-			latinput.value = lat;
-			lnginput.value = lng;
-		}
-
-		map.on("click", onMapClick);
-
-		//mettere sui campi di input i valori rispettivi di latitudine e longitudine
-		//richiedere i calori dall'API del meteo
-	</script>
+	<script src="static/js/leafletScript.js"></script>
+	<script src="static/js/script.js"></script>
 </html>
