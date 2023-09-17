@@ -29,5 +29,3 @@ function onMapClick(e) {
 }
 
 map.on("click", onMapClick);
-
-//richiedere i dati all'API, passando i valori di latitudine e longitudine al file script.js con la memoria interna
