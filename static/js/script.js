@@ -22,5 +22,14 @@ document.querySelector("form").addEventListener("submit", function (event) {
 		.then(function (data) {
 			console.log(data.hourly.time);
 			console.log(data.hourly.temperature_2m);
+			
+
+			for (let i = 0; i < 9; i++) {
+				let timeElement = document.querySelectorAll("span.time");
+				timeElement[i].innerHTML = `${data.hourly.time[i]}`
+
+				let temperatureElement = document.querySelectorAll("span.temp")
+				temperatureElement[i].innerHTML = `${data.hourly.temperature_2m[i]}`;
+			}
 		});
 });
