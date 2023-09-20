@@ -4,7 +4,13 @@ resetButton.addEventListener("click", function () {
 	location.reload();
 });
 
+let dataContainer = document.querySelectorAll('.data-container')
+
 document.querySelector("form").addEventListener("submit", function (event) {
+
+
+	
+
 	event.preventDefault();
 	let latitudine = document.querySelector("#lat").value;
 	let longitudine = document.querySelector("#lng").value;
@@ -30,6 +36,11 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 				let temperatureElement = document.querySelectorAll("span.temp")
 				temperatureElement[i].innerHTML = `${data.hourly.temperature_2m[i]}`;
+			}
+
+			for (let i = 0; i < dataContainer.length; i++) {
+
+				dataContainer[i].classList.add('border-2')
 			}
 		});
 });
