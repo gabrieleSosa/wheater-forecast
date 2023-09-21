@@ -1,36 +1,3 @@
-/*
-		You may need this for responsive background
-		section {
-			background: url('bg-425.jpg');
-		}
-
-		@media only screen and (min-width:640px) {
-			section {
-				background: url('bg-640.jpg');
-			}
-		}
-
-		@media only screen and (min-width:768px) {
-			section {
-				background: url('bg-768.jpg');
-			}
-		}
-
-		@media only screen and (min-width:1024px) {
-			section {
-				background: url('bg-1024.jpg');
-			}
-		}
-
-		@media only screen and (min-width:1025px) {
-			section {
-				background: url('bg-max.jpg');
-			}
-		} */
-
-body {
-	margin: 0;
-}
 
 section {
 	background-position: center;
@@ -60,16 +27,15 @@ section {
 	flex-direction: column;
 }
 
-canvas{
+canvas {
 	height: 0;
 }
 
-.canvasStyle {
+
+
+.canvaStyle {
 	width: 500px !important;
 	height: 350px !important;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
-	margin-bottom: 50px;
 }
-

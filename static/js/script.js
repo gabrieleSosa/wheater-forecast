@@ -1,4 +1,5 @@
 let resetButton = document.querySelector(".reset-button");
+let canvas = document.querySelector("canvas");
 
 resetButton.addEventListener("click", function () {
 	location.reload();
@@ -8,6 +9,8 @@ let dataContainer = document.querySelectorAll(".data-container");
 
 document.querySelector("form").addEventListener("submit", function (event) {
 	event.preventDefault();
+
+	canvas.classList.add("canvaSytle");
 	let latitudine = document.querySelector("#lat").value;
 	let longitudine = document.querySelector("#lng").value;
 
@@ -35,8 +38,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
 });
 
 function createChart() {
-	let canvas = document.querySelector("canvas");
-	canvas.classList.add("canvasSytle");
 	let config = {
 		type: "line",
 		data: {
