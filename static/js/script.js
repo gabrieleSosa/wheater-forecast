@@ -1,5 +1,6 @@
 let resetButton = document.querySelector(".reset-button");
 let canvas = document.querySelector("canvas");
+let section = document.querySelector("section");
 
 resetButton.addEventListener("click", function () {
 	location.reload();
@@ -34,13 +35,15 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 			createChart(timeArr, tempeArr, humidityArr, windspeedArr);
 
-			
-			canvas.style.marginTop = "100px";
-			canvas.style.marginBotton = "100px";
-			canvas.style.width = "500px";
-			canvas.style.height = "350px";
+			canvas.style.backgroundColor = "#B2D3E4";
+			canvas.style.marginTop = "50px";
+			canvas.style.width = "600px";
+			canvas.style.height = "400px";
 			canvas.style.marginLeft = "auto";
 			canvas.style.marginRight = "auto";
+			canvas.style.borderRadius = "20px";
+			canvas.style.opacity = "90%";
+			section.style.minHeight = "150vh";
 			canvas.scrollIntoView({ behavior: "smooth" });
 		});
 });
@@ -55,7 +58,7 @@ function createChart(tempo, temperatura, umidita, velocitaVento) {
 					label: "Temperatura media",
 					data: temperatura,
 					fill: false,
-					borderColor: "rgb(75, 192, 192)",
+					borderColor: "rgb(255, 255, 0)",
 					tension: 0.5,
 					yAxisID: "y",
 				},
@@ -71,7 +74,7 @@ function createChart(tempo, temperatura, umidita, velocitaVento) {
 					label: "Velocità vento",
 					data: velocitaVento,
 					fill: false,
-					borderColor: "rgb(100, 255, 100)",
+					borderColor: "rgb(0, 17, 70)",
 					tension: 0.5,
 					yAxisID: "y2",
 				},

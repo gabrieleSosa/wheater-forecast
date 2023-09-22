@@ -1,4 +1,6 @@
 section {
+	margin-top: 20px;
+	min-height: 100vh;
 	background-position: center;
 	background-size: cover;
 	background-image: url("https://img.freepik.com/free-vector/clouds-with-rainfall-background-design_1017-33595.jpg?w=2000&t=st=1695308327~exp=1695308927~hmac=7d9f57366c66411a7bca194dbf92dcef189be7cd1617908aaa53710c5901672f");
