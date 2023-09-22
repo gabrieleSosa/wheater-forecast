@@ -10,7 +10,6 @@ let dataContainer = document.querySelectorAll(".data-container");
 document.querySelector("form").addEventListener("submit", function (event) {
 	event.preventDefault();
 
-	canvas.classList.add("canvaSytle");
 	let latitudine = document.querySelector("#lat").value;
 	let longitudine = document.querySelector("#lng").value;
 
@@ -33,31 +32,39 @@ document.querySelector("form").addEventListener("submit", function (event) {
 				windspeedArr[i] = data.hourly.windspeed_10m[i];
 			}
 
-			createChart();
+			createChart(timeArr, tempeArr, humidityArr, windspeedArr);
 		});
 });
 
-function createChart() {
+function createChart(tempo, temperatura, umidita, velocitaVento) {
 	let config = {
 		type: "line",
 		data: {
-			labels: ["January", "February", "March"],
+			labels: tempo,
 			datasets: [
 				{
 					label: "Temperatura media",
-					data: [10, 20, 11.2],
+					data: temperatura,
 					fill: false,
 					borderColor: "rgb(75, 192, 192)",
-					tension: 0.1,
+					tension: 0.5,
 					yAxisID: "y",
 				},
 				{
 					label: "Umidità media",
-					data: [70, 72, 66],
+					data: umidita,
 					fill: false,
 					borderColor: "rgb(255, 0, 0)",
-					tension: 0.1,
+					tension: 0.5,
 					yAxisID: "y1",
+				},
+				{
+					label: "Umidità media",
+					data: velocitaVento,
+					fill: false,
+					borderColor: "rgb(100, 255, 100)",
+					tension: 0.5,
+					yAxisID: "y2",
 				},
 			],
 		},
@@ -67,6 +74,10 @@ function createChart() {
 				position: "left",
 			},
 			y1: {
+				type: "linear",
+				position: "left",
+			},
+			y2: {
 				type: "linear",
 				position: "left",
 			},
