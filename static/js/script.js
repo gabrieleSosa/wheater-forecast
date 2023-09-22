@@ -33,6 +33,15 @@ document.querySelector("form").addEventListener("submit", function (event) {
 			}
 
 			createChart(timeArr, tempeArr, humidityArr, windspeedArr);
+
+			
+			canvas.style.marginTop = "100px";
+			canvas.style.marginBotton = "100px";
+			canvas.style.width = "500px";
+			canvas.style.height = "350px";
+			canvas.style.marginLeft = "auto";
+			canvas.style.marginRight = "auto";
+			canvas.scrollIntoView({ behavior: "smooth" });
 		});
 });
 

@@ -29,12 +29,3 @@ section {
 canvas {
 	height: 0;
 }
-
-.canvaStyle {
-	background-color: aqua;
-	margin-top: 100px;
-	width: 500px !important;
-	height: 350px !important;
-	margin-left: auto;
-	margin-right: auto;
-}
