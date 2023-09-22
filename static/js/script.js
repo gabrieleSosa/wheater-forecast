@@ -68,7 +68,7 @@ function createChart(tempo, temperatura, umidita, velocitaVento) {
 					yAxisID: "y1",
 				},
 				{
-					label: "Umidità media",
+					label: "Velocità vento",
 					data: velocitaVento,
 					fill: false,
 					borderColor: "rgb(100, 255, 100)",
